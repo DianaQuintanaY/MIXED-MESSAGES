@@ -1,9 +1,14 @@
-const method = require("./modules/method")
-const boxes = require("./modules/boxes")
-const returnMixedMessages = () =>
-console.log(`Hi!, remember this : \n "${
-  method.getElementRandom(boxes.boxOfMessages).phrase}" ~ (${
-  method.getElementRandom(boxes.boxOfMessages).author})\n ${
-  method.getElementRandom(boxes.boxOfAdvices)}\n ${
-  method.getElementRandom(boxes.boxOfCautions)}`);
-returnMixedMessages();
+const method = require("./modules/method");
+const boxes = require("./modules/boxes");
+const returnMixedMessages = () => {
+  let returnRandomMessages = method.getElementRandom(boxes.boxOfMessages);
+  return (
+    `Hi!, remember this : \n "${returnRandomMessages.phrase}" ~ (${
+      returnRandomMessages.author
+    })\n ${method.getElementRandom(
+      boxes.boxOfAdvices
+    )}\n ${method.getElementRandom(boxes.boxOfCautions)}    
+    `
+  );
+};
+console.log(returnMixedMessages());
